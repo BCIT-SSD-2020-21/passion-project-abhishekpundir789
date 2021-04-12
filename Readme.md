@@ -4,5 +4,6 @@
 
 ## Dependencies for installation: 
 * yarn add firebase
+* npm install -g firebase-tools
 
 ## Prototype Images:
