@@ -4,9 +4,8 @@ import './Header.css'
 function Header() {
     return (
         <div className='header'>
-            <img className = "header__logo" src="Capture.JPG" alt ="Store logo"/>
-            <h2>E-Commerce Store</h2>
-            
+            <img className = "header__logo" src="https://logos-world.net/wp-content/uploads/2020/04/Amazon-Symbol.jpg" 
+            alt ="Store logo"/><strong>E-Commerce Clone</strong>           
             <div className="header__search"> 
                 <input className="header__searchInput" type="text" />
             </div>
@@ -24,8 +23,6 @@ function Header() {
                 <span className='header__optionLineOne'>Your</span>
                 <span className='header__optionLineTwo'>Prime</span>
                 </div>
-                
-
             </div>
         </div>
     )

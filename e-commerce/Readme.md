@@ -6,6 +6,8 @@
 ## Dependencies for installation: 
 * yarn add firebase
 * npm install -g firebase-tools
+* npm install @material-ui/core
+* npm install @material-ui/icons
 
 ## Prototype Images:
 * Home Page: 
