@@ -1,13 +1,16 @@
 import React from 'react'
 import './Header.css'
+import SearchIcon  from '@material-ui/icons/Search';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 
 function Header() {
     return (
         <div className='header'>
-            <img className = "header__logo" src="https://logos-world.net/wp-content/uploads/2020/04/Amazon-Symbol.jpg" 
-            alt ="Store logo"/><strong>E-Commerce Clone</strong>           
+            <img className = "header__logo" src="https://bgr.com/wp-content/uploads/2020/09/amazon-logo-sign.jpg?quality=70&strip=all&w=640&h=500&crop=1" 
+            alt ="Store logo"/><strong className="logoName">E-Commerce Clone</strong>           
             <div className="header__search"> 
                 <input className="header__searchInput" type="text" />
+                <SearchIcon className="header__searchIcon" />
             </div>
 
             <div className ="header__nav">
@@ -22,6 +25,11 @@ function Header() {
                 <div className='header__option'>
                 <span className='header__optionLineOne'>Your</span>
                 <span className='header__optionLineTwo'>Prime</span>
+                </div>
+
+                <div className="header__optionBasket">
+                    <ShoppingBasketIcon />
+                    <span className="header__optionLineTwo header__basketCount">0</span>
                 </div>
             </div>
         </div>
