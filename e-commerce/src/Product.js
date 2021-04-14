@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 
-function Product() {
+function Product({ title, image, price }) {
     const labels = {
         0.5: 'Useless',
         1: 'Useless+',
@@ -33,10 +33,10 @@ function Product() {
     return (
         <div className="product">
             <div className="product__info">
-                <p>The Lean Startup</p>
+                <p>{title}</p>
                 <p className="product__price">
-                    <small>$</small>
-                    <strong>25.68</strong>
+                    <strong>$</strong>
+                    <strong>{price}</strong>
                 </p>
                 <div className="product__rating">
                     <p>  
@@ -57,6 +57,8 @@ function Product() {
                     </p>
                 </div>
             </div>
+            <img src = {image} alt = "image" />
+            <button> Add to Basket </button>
         </div>
     )
 }
