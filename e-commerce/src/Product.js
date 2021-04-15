@@ -3,8 +3,9 @@ import './Product.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
+import { useStateValue } from './StateProvider';
 
-function Product({ title, image, price }) {
+function Product({ id, title, image, price }) {
     const labels = {
         0.5: 'Useless',
         1: 'Useless+',
@@ -29,6 +30,23 @@ function Product({ title, image, price }) {
     const [value, setValue] = React.useState(2);
     const [hover, setHover] = React.useState(-1);
     const classes = useStyles();
+    const [ {basket }, dispatch] = useStateValue();
+
+    console.log("this is the basket", basket);
+
+    const addToBasket = () => {
+        dispatch({
+            type: 'ADD_TO_BASKET',
+            item: {
+                id: id,
+                title: title,
+                image: image,
+                price: price,
+                //rating: rating,
+            },
+        });
+
+    };
 
     return (
         <div className="product">
@@ -58,7 +76,7 @@ function Product({ title, image, price }) {
                 </div>
             </div>
             <img src = {image} alt = "image" />
-            <button> Add to Basket </button>
+            <button onClick={addToBasket}> Add to Basket </button>
         </div>
     )
 }
