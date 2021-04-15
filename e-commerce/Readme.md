@@ -10,6 +10,7 @@
 * npm install @material-ui/icons
 * npm install @material-ui/lab
 * npm install react-router-dom
+* npm install react-currency-format
 
 ## Prototype Images:
 * Home Page: 
