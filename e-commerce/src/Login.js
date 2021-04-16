@@ -1,8 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Login.css';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { auth } from './Firebase/firebase';
 
 function Login() {
+    const history = useHistory();
+    const [email, setEmail] = useState('');
+    const [passowrd, setPassword] = useState('');
+
+    const signIn = e => {
+        e.preventDefault();
+    }
+
+    const register = e => {
+        e.preventDefault();
+        auth
+            .createUserWithEmailAndPassword(email, passowrd)
+            .then((auth) => {
+                console.log(auth);
+                if(auth){
+                    history.push('/')
+                }
+            })
+            .catch(error => alert(error.message))
+
+    }
+
     return (
         <div className="login">
             <Link to ='/'>
@@ -13,11 +36,12 @@ function Login() {
                 <h1>Sign In</h1>
                 <form>
                     <h4>Email</h4>
-                    <input type="text" />
+                    <input type="text" value={email} onChange={ e => setEmail(e.target.value)} />
                     <h4>Password</h4>
-                    <input type="password" />
-                    <button className="login__signInButton"> Sign In </button><br></br>
-                    <button className="login__registerButton">Create New Account </button>
+                    <input type="password" value={passowrd} onChange={e => setPassword(e.target.value)} />
+
+                    <button  type = 'submit' onClick = {signIn} className="login__signInButton" > Sign In </button><br></br>
+                    <button onClick = {register} className="login__registerButton">Create New Account </button>
                 </form>
             </div>            
         </div>
