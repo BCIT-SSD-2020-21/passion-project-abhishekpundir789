@@ -11,8 +11,9 @@
 * npm install @material-ui/lab
 * npm install react-router-dom
 * npm install react-currency-format
-* npm i @stripe/stripe-js
-* npm i @stripe/react-stripe-js
+* npm install @stripe/stripe-js
+* npm install @stripe/react-stripe-js
+* npm install axios
 
 ## Prototype Images:
 * Home Page: 
