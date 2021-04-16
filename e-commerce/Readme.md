@@ -17,6 +17,7 @@
 * npm install express { it should be under the function folder in app as it wil be the cloud backend functionality using express}
 * npm install cors { same under the functions folder }
 * npm install stripe { same under the function folder }
+* npm install moment { for the order dates functionality }
 
 ## Prototype Images:
 * Home Page: 

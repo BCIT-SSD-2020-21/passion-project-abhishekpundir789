@@ -45,14 +45,15 @@ function Payment() {
             }
         }).then(({ paymentIntent }) => {
 
-            db.collection('users')
-            .doc(user?.uid)
-            .collection('orders')
-            .doc(paymentIntent.id)
-            .set({
-                basket: basket,
-                amount: paymentIntent.amount,
-                created: paymentIntent.created
+            db
+                .collection('users')
+                .doc(user?.uid)
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
+                    basket: basket,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created
             })
 
             setSucceeded(true);
@@ -95,8 +96,9 @@ function Payment() {
                         {basket.map(item =>(
                             <CheckoutProduct 
                                 title={item.title}
-                                price={item.price}
                                 image={item.image}
+                                price={item.price}
+                                
                             />
                         ))}
                     </div>
@@ -122,9 +124,11 @@ function Payment() {
                                     thousandSeparator={true}
                                     prefix={"$"}
                                 />
+                                <Link to ='/orders'>
                                 <button disabled = {processing || disabled || succeeded}>
                                     <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                                 </button>
+                                </Link>
                             </div>
                             {error && <div>{error}</div>}
                         </form>
